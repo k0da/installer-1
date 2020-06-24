@@ -67,7 +67,7 @@ rules:
   - secrets
   - services
   - endpoints
-  verbs: ["get"]
+  verbs: ["get","list","create","patch"]
 - apiGroups:
   - ""
   resources:
