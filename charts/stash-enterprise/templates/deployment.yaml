@@ -45,13 +45,10 @@ spec:
         - run
         - --v={{ .Values.logLevel }}
         - --docker-registry={{ .Values.operator.registry }}
+        - --image={{ .Values.operator.repository }}
         - --image-tag={{ .Values.operator.tag }}
-        {{ if .Values.imagePullSecrets }}
-          {{- $secrets:= list -}}
-          {{- range $x:=.Values.imagePullSecrets -}}
-            {{ $secrets = append $secrets $x.name }}
-          {{- end -}}
-        - --image-pull-secrets={{ $secrets | join "," }}
+        {{- if .Values.imagePullSecrets }}
+        - --image-pull-secrets={{ include "image-pull-secrets" . }}
         {{- end }}
         - --secure-port=8443
         - --audit-log-path=-
