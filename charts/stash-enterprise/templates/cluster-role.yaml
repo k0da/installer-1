@@ -60,7 +60,7 @@ rules:
   - ""
   resources:
   - persistentvolumeclaims
-  verbs: ["get","list","watch", "create", "patch"]
+  verbs: ["get", "list", "watch", "create", "patch"]
 - apiGroups:
   - ""
   resources:
@@ -71,7 +71,7 @@ rules:
   - ""
   resources:
   - secrets
-  verbs: ["get","list","create","patch"]
+  verbs: ["get", "list", "create", "patch"]
 - apiGroups:
   - ""
   resources:
